@@ -1,8 +1,8 @@
-# Supported/Unsupported Chipsets
+# Chipsets Soportados/No soportados
 
-With macOS there's a limited amount of supported hardware regardless of which category and wireless cards are no different.
+Con macOS hay una cantida limitada de hardware compatible sin importar de qué categoría es, y las tarjetas de WiFi no son excepción.
 
-## Supported chipsets
+## Chipsets Soportados
 
 ### Big Sur(11)
 
@@ -11,11 +11,11 @@ With macOS there's a limited amount of supported hardware regardless of which ca
 * BCM94352
 * BCM94350
 
-### Mojave(10.14) and Catalina(10.15)
+### Mojave(10.14) y Catalina(10.15)
 
 * BCM94331
-  * May require you to force load IO80211Family.kext when running macOS 10.15, Catalina, see `Kernel -> Force` in OpenCore for more details 
-* All those mentioned in Big Sur(11) are also supported in Mojave(10.14) and Catalina(10.15)
+  * Podría requerir que fuerces la carga de IO80211Family.kext cuando corres macOS 10.15, Catalina. Mira `Kernel -> Force` en OpenCore para obtener más detalles. 
+* Todos los mencionados en Big Sur(11) también son soportados en Mojave(10.14) y Catalina(10.15)
 
 ### High Sierra(10.13)
 
@@ -24,9 +24,9 @@ With macOS there's a limited amount of supported hardware regardless of which ca
 * AR9287
 * AR9280
 * AR9380
-* All those mentioned in Mojave and newer are also supported in High Sierra
+* Todos los mencionados en Mojave y posterior también son soportados en High Sierra
 
-# Unsupported Chipsets
+# Chipsets no soportados
 
 ## Broadcom
 
@@ -43,7 +43,7 @@ With macOS there's a limited amount of supported hardware regardless of which ca
 
 ## Intel
 
-Currently these Intel chipsets are not offically supported in macOS(see here for possible solutions: [Where's my Intel Wifi](../misc/intel.md)):
+Actualmente estos chipsets de Intel no están soportados oficialmente en macOS (dirígete aquí para encontrar posibles soluciones: [¿Dónde está mi WiFi Intel?](../misc/intel.md)):
 
 Intel Wireless AX
 
