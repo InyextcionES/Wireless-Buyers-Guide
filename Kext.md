@@ -1,71 +1,71 @@
-# When and what kexts to use
+# Cuándo y qué kexts usar
 
 ## [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
 
-This is needed to fix wifi on many Broadcom cards, while not all of them need them it's generally required when using non-apple manufactured wireless cards. This also has the added functionality of injecting old Broadcom kexts into newer versions of macOS.
+Esto es necesario para arreglar el WiFi en muchas tarjetas Broadcom. Mientras no todas lo necesitan generalmente es requerido tenerlo cuando usas tarjetas inalámbricas que no son de Apple. Esto también tiene la adición de la funcionalidad de inyectar kexts Broadcom antiguos a versiones más nuevas de macOS
 
-Note:
+Nota:
 
-* Apple Airport and Fenvi cards do not need this kext
+* Tarjetas Airport de Apple y Fenvi no necesitan de este kext
 
 ## [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases)
 
-Required for all non-apple manufactured wireless cards due to how Firmware is handled. This is actually a bundle of multiple kexts:
+Requerido para todas las tarjetas inalámbricas que no son de Apple, debido a cómo es manejado el firmware. Esto es en realidad un paquete con varios kexts:
 
 * BrcmBluetoothInjector
 * BrcmFirmwareData
 * BrcmPatchRAM fix:
-  * BrcmPatchRAM3 for 10.14+ (must be paired with BrcmBluetoothInjector)
-  * BrcmPatchRAM2 for 10.11-10.14
-  * BrcmPatchRAM for 10.10 or older
+  * BrcmPatchRAM3 para 10.14+ (debe ser emparejado con BrcmBluetoothInjector)
+  * BrcmPatchRAM2 para 10.11-10.14
+  * BrcmPatchRAM para 10.10 o más viejo
 
-Note:
+Nota:
 
-* Apple Airport and Fenvi cards do not need these kexts
-* OpenCore order is alphabetical: Injector -> Data -> RAM
+* Tarjetas Airport de Apple y Fenvi no necesitan de este kext
+* El orden de OpenCore es alfabético: Injector -> Data -> RAM
 
 ## [BT4LEContinuityFixup](https://github.com/acidanthera/BT4LEContinuityFixup)
 
-Needed to fix odd Continuity issues which allow for the use of:
+Necesario para arreglar errores raros de Continuity que permiten el uso de:
 
 * Handoff
-* Instant Hotspot
-* New Airdrop
-* Apple Watch Unlock
+* Hotspot instantáneo
+* Airdrop nuevo
+* Desbloqueo con Apple Watch
 
-Generally unneeded so avoid use when you notice issues with your card
+Generalmente no es necesario así que evita el uso de este si ves problemas con tu tarjeta
 
-Note:
+Nota:
 
-* Apple Airport and Fenvi cards shouldn't need this kext
-* Continuity requires a Bluetooth 4.0 Low Energy supported card
+* Tarjetas Airport de Apple y Fenvi no deberían necesitar de este kext
+* Continuity requiere una tarjeta soportada Bluetooth 4.0 de baja energía
 
 ## [AirPortAtheros40](https://github.com/khronokernel/Wifi-Buyers-Guide/blob/master/AirPortAtheros40.kext.zip)
 
-This kext is required for all Atheros chipsets that had support dropped in Mojave, these include:
+Este kext es requerido para todos los chipsets Atheros que perdieron soporte en Mojave, incluyendo:
 
 * AR9285
 * AR9287
 * AR9280
 * AR9380
 
-To install the AirPortAtheros40, you have 2 methods:
+Para instalar AirPortAtheros40 tienes 2 opciones:
 
-* Kext injection via bootloader
-* Installation into macOS(Library/Extensions)
+* Inyección del Kext via bootloader
+* Instalación dentro de macOS(Library/Extensions)
 
-The first method is recommended, the second should be avoided but may work better for some users. **Test injection first**
+El primer método es el recomendado, y el segundo debería ser evitado pero puede funcionar mejor para algunos usuarios. **Prueba el método de inyección primero**
 
-For macOS installation:
+Para la instalación a macOS:
 
-You'll need to copy it to Library/Extensions(**NOT** System/Library/Extensions) and then run the following command:
+Necesitarás copiarlo a Library/Extensions(**NO** a System/Library/Extensions) y luego correr el siguiente comando:
 
 ```
 sudo chown -R root:wheel /L*/E*; sudo chmod -R 755 /L*/E*; sudo kextcache -i /
 ```
 
-**Catalina users note**: These methods no longer works without backporting the entire IO80211 framework, this is not ideal for stability reasons
+**Nota para usuarios de Catalina**: Estos métodos no funcionan si no portas el framework IO80211 entero, lo que no es ideal por razones de estabilidad
 
 ## [ATH9KFixup](https://github.com/chunnann/ATH9KFixup)
 
-To be paired with AirPortAtheros40 to fix support for many atheros cards, similar idea to AirportBrcmFixup
+Para ser emparejado con AirPortAtheros40 para arreglar soporte con muchas tarjetas Atheros, idea similar a AirportBrcmFixup
